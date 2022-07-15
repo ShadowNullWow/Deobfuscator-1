@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+// By ShadowNullWow
+// From java-deobfuscator
 public class DeadCodeRemoveTransformer extends Transformer {
 
     @Override

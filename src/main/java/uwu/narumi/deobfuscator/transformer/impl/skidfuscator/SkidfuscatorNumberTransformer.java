@@ -2,6 +2,7 @@ package uwu.narumi.deobfuscator.transformer.impl.skidfuscator;
 
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.AbstractInsnNode;
+import org.objectweb.asm.tree.VarInsnNode;
 import uwu.narumi.deobfuscator.Deobfuscator;
 import uwu.narumi.deobfuscator.transformer.Transformer;
 
