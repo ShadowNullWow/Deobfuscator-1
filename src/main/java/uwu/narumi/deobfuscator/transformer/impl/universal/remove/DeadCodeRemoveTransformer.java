@@ -20,8 +20,6 @@ public class DeadCodeRemoveTransformer extends Transformer {
 
     @Override
     public void transform(Deobfuscator deobfuscator) throws Exception {
-        AtomicInteger deadInstructions = new AtomicInteger();
-
         deobfuscator.classes().parallelStream().forEach(classNode -> {
             classNode.methods.forEach(methodNode -> {
                 if (methodNode.instructions.getFirst() == null)
@@ -43,7 +41,6 @@ public class DeadCodeRemoveTransformer extends Transformer {
                         continue;
 
                     remove.add(methodNode.instructions.get(i));
-                    deadInstructions.getAndIncrement();
                 }
 
                 remove.forEach(methodNode.instructions::remove);

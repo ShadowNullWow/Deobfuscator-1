@@ -21,10 +21,10 @@ public class SkidfuscatorLocalInlineTransformer extends Transformer {
 
     @Override
     public void transform(Deobfuscator deobfuscator) throws Exception {
-        deobfuscator.classes().forEach(classNode -> {
+        deobfuscator.classes().parallelStream().forEach(classNode -> {
             if (forClinit) {
                 classNode.methods
-                        .parallelStream()
+                        .stream()
                         .filter(methodNode -> methodNode.name.equals("<clinit>"))
                         .forEach(methodNode -> {
                             if (methodNode.instructions.size() < 2)

@@ -1,9 +1,6 @@
 import org.objectweb.asm.ClassReader;
 import uwu.narumi.deobfuscator.Deobfuscator;
-import uwu.narumi.deobfuscator.transformer.impl.skidfuscator.SkidfuscatorFlowTransformer;
-import uwu.narumi.deobfuscator.transformer.impl.skidfuscator.SkidfuscatorLocalInlineTransformer;
-import uwu.narumi.deobfuscator.transformer.impl.skidfuscator.SkidfuscatorNumberTransformer;
-import uwu.narumi.deobfuscator.transformer.impl.skidfuscator.SkidfuscatorWatermarkRemoveTransformer;
+import uwu.narumi.deobfuscator.transformer.impl.skidfuscator.*;
 import uwu.narumi.deobfuscator.transformer.impl.universal.other.UniversalNumberTransformer;
 import uwu.narumi.deobfuscator.transformer.impl.universal.remove.DeadCodeRemoveTransformer;
 
@@ -19,11 +16,10 @@ public class Loader {
                         new DeadCodeRemoveTransformer(),
                         new SkidfuscatorWatermarkRemoveTransformer(),
                         new SkidfuscatorNumberTransformer(),
-                        new SkidfuscatorLocalInlineTransformer(true),
-                        new UniversalNumberTransformer(),
-                        new SkidfuscatorFlowTransformer(),
-                        new DeadCodeRemoveTransformer()
-
+//                        new SkidfuscatorLocalInlineTransformer(true),
+//                        new UniversalNumberTransformer(),
+                        new SkidfuscatorFlowTransformer(true)
+//                        new DeadCodeRemoveTransformer()
                 )
                 .classReaderFlags(ClassReader.SKIP_FRAMES)
                 .classWriterFlags(0)
